@@ -12,6 +12,7 @@ public class Y3K{
 		try{
 			String [] data = read.split(" ");
 			if(data.length == 4){
+				if(data[0].equals("0") && data[1].equals("0") && data[2].equals("0") && data[3].equals("0")) return 0;
 				int diasAsumar = Integer.parseInt(data[0]);
 				int dia = Integer.parseInt(data[1]);
 				int mes = Integer.parseInt(data[2]);
@@ -19,6 +20,7 @@ public class Y3K{
 				calendar = calendar.getInstance();
 				calendar.set(year, mes, dia);
 				System.out.println(calendar.toString());
+				System.out.println("Dias a sumar: " + diasAsumar);
 
 
 
@@ -29,10 +31,10 @@ public class Y3K{
 
 			
 		}catch(Exception e){
-			return 0;
+			return 1;
 		}
 		//System.out.println(read);
-		return 0;
+		return 1;
 	}
 
 	public static void main(String args[]){
