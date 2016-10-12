@@ -16,7 +16,7 @@ bool state[MAXN];
 
 void dfs(int u){
 	state[u] = true;
-	for(int i = 0; g[u].size(); ++i){
+	for(int i = 0; i < g[u].size(); ++i){
 		int nextNode = g[u][i];
 		if(!state[nextNode]) dfs(nextNode);		
 	}
@@ -39,6 +39,7 @@ int main(){
 		while(n--){
 			int x,y;
 			cin >> x >> y;
+			if(x>y) swap(x,y);
 			g[x].push_back(y);
 		}
 		
@@ -52,6 +53,6 @@ int main(){
 			cout << endl;
 		}
 	}catch(exception& e){
-		cout << "Standard Exception"  << endl;
+		cout << "Standard Exception"  << e.what() << endl;
 	}
 }
